@@ -4,19 +4,19 @@ MyPW is a secure, command-line based password manager designed for developers an
 All your data is stored in a single, heavily encrypted file (~/.mypw_vault.enc) on your local machine.
 
 ### Features
--Advanced Security: Your vault is encrypted using AES-265 with a key derived from your master password using PBKDF2 with a high iteration count.
--Isolated Data Store: A single, portable, encrypted file holds all your data. No databases, no cloud sync.
--Modern Interactive CLI: A beautiful and user-friendly interface powered by the Rich library.
--Command-Line and Interactive Modes: Use direct commands like pw get github for quick access, or run pw to enter a full interactive menu.
--Secure Password Generator: Create strong, cryptographically secure passwords.
--Clipboard Integration: Safely copy passwords to your clipboard, with an automatic clear after 15 seconds to prevent exposure.
+- Advanced Security: Your vault is encrypted using AES-265 with a key derived from your master password using PBKDF2 with a high iteration count.
+- Isolated Data Store: A single, portable, encrypted file holds all your data. No databases, no cloud sync.
+- Modern Interactive CLI: A beautiful and user-friendly interface powered by the Rich library.
+- Command-Line and Interactive Modes: Use direct commands like pw get github for quick access, or run pw to enter a full interactive menu.
+- Secure Password Generator: Create strong, cryptographically secure passwords.
+- Clipboard Integration: Safely copy passwords to your clipboard, with an automatic clear after 15 seconds to prevent exposure.
 
 ### Security Model
 MyPW is designed with a security-first approach:
--Master Password: The only key to your vault. This password is never stored.
--Key Derivation (PBKDF2): We use your master password and a unique, randomly generated salt to create a strong encryption key. Using a salt prevents rainbow table attacks. The process is repeated hundreds of thousands of times to make brute-force attacks extremely slow and computationally expensive.
--AES-256 Encryption: The derived key is used to encrypt your data with the industry-standard AES-256 cipher.
--Local Storage: Your encrypted vault never leaves your machine.
+- Master Password: The only key to your vault. This password is never stored.
+- Key Derivation (PBKDF2): We use your master password and a unique, randomly generated salt to create a strong encryption key. Using a salt prevents rainbow table attacks. The process is repeated hundreds of thousands of times to make brute-force attacks extremely slow and computationally expensive.
+- AES-256 Encryption: The derived key is used to encrypt your data with the industry-standard AES-256 cipher.
+- Local Storage: Your encrypted vault never leaves your machine.
 
 ### Installation
 **Installation on Linux/macOS**
@@ -55,15 +55,15 @@ The install.sh script is not compatible with Windows. Follow these steps to inst
     python mypw.py
 
 6. (Optional) Create a permanent pw command: To use the pw command from anywhere, you can add a function to your PowerShell profile.
-    -First, open your profile script for editing (it will be created if it doesn't exist):
+    - First, open your profile script for editing (it will be created if it doesn't exist):
         notepad $PROFILE
 
-    -Add the following lines to the file and save it:
+    - Add the following lines to the file and save it:
         function pw {
             & "$HOME\~mypw\venv\Scripts\python.exe" "$HOME\~mypw\mypw.py" $args
         }
 
-    -Reload your profile by restarting PowerShell or running:
+    - Reload your profile by restarting PowerShell or running:
         . $PROFILE
 
     Now you can use pw init, pw list, etc., from any directory in PowerShell.
@@ -79,24 +79,24 @@ For a menu-driven experience, simply run the command by itself:
 
 **Direct Commands**
 For faster access, use direct commands:
--List all entries:
+- List all entries:
     pw list
 
--Add a new entry:
+- Add a new entry:
     pw add
 
--Get and copy a password:
+- Get and copy a password:
     pw get github
 
--Delete an entry:
+- Delete an entry:
     pw delete "My Website"
 
--Generate a new password:
+- Generate a new password:
     pw gen
     # Generate a 30-character password
     pw gen --length 30
 
--See all options:
+- See all options:
     pw --help
 
 
