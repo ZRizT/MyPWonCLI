@@ -93,7 +93,7 @@ For faster access, use direct commands:
 
 - Generate a new password:
     pw gen
-    - # Generate a 30-character password
+    \# Generate a 30-character password
     pw gen --length 30
 
 - See all options:
