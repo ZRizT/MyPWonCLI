@@ -8,7 +8,7 @@
 INSTALL_DIR="$HOME/.mypw"
 VENV_DIR="$INSTALL_DIR/venv"
 EXECUTABLE_PATH="/usr/local/bin/pw"
-REPO_URL="https://github.com/your-username/mypw.git" # Placeholder for future git repo
+REPO_URL="https://github.com/ZRizT/MyPWonCLI" 
 
 echo "--- MyPW Installer ---"
 
