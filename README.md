@@ -3,7 +3,7 @@
 MyPW is a secure, command-line based password manager designed for developers and terminal enthusiasts. It provides a fast, modern, and interactive CLI to manage your passwords without ever leaving the terminal.
 All your data is stored in a single, heavily encrypted file (~/.mypw_vault.enc) on your local machine.
 
-###Features
+### Features
 -Advanced Security: Your vault is encrypted using AES-265 with a key derived from your master password using PBKDF2 with a high iteration count.
 -Isolated Data Store: A single, portable, encrypted file holds all your data. No databases, no cloud sync.
 -Modern Interactive CLI: A beautiful and user-friendly interface powered by the Rich library.
@@ -11,14 +11,14 @@ All your data is stored in a single, heavily encrypted file (~/.mypw_vault.enc) 
 -Secure Password Generator: Create strong, cryptographically secure passwords.
 -Clipboard Integration: Safely copy passwords to your clipboard, with an automatic clear after 15 seconds to prevent exposure.
 
-###Security Model
+### Security Model
 MyPW is designed with a security-first approach:
 -Master Password: The only key to your vault. This password is never stored.
 -Key Derivation (PBKDF2): We use your master password and a unique, randomly generated salt to create a strong encryption key. Using a salt prevents rainbow table attacks. The process is repeated hundreds of thousands of times to make brute-force attacks extremely slow and computationally expensive.
 -AES-256 Encryption: The derived key is used to encrypt your data with the industry-standard AES-256 cipher.
 -Local Storage: Your encrypted vault never leaves your machine.
 
-###Installation
+### Installation
 **Installation on Linux/macOS**
 You can install MyPW using the provided installer script.
 1. Save the files: Make sure you have mypw.py and install.sh in the same directory.
@@ -54,29 +54,21 @@ The install.sh script is not compatible with Windows. Follow these steps to inst
 5. Run MyPW: You can now run the application from within this directory:
     python mypw.py
 
-
-
 6. (Optional) Create a permanent pw command: To use the pw command from anywhere, you can add a function to your PowerShell profile.
     -First, open your profile script for editing (it will be created if it doesn't exist):
         notepad $PROFILE
-
-
 
     -Add the following lines to the file and save it:
         function pw {
             & "$HOME\~mypw\venv\Scripts\python.exe" "$HOME\~mypw\mypw.py" $args
         }
 
-
-
     -Reload your profile by restarting PowerShell or running:
         . $PROFILE
 
-
-
     Now you can use pw init, pw list, etc., from any directory in PowerShell.
 
-##Usage
+## Usage
 Once installed, you can use the pw command.
 First time? Initialize your vault:
     pw init
@@ -108,7 +100,7 @@ For faster access, use direct commands:
     pw --help
 
 
-##Manual Installation (Alternative for Linux/macOS)
+## Manual Installation (Alternative for Linux/macOS)
 If you prefer not to use the installer script on Linux/macOS:
 1. Install Python 3 and Pip.
 2. Install the dependencies:
