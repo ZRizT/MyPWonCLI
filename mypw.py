@@ -90,6 +90,40 @@ def initialize_vault():
 
     console.print("[bold green]✓ Vault initialized successfully at:[/bold green]", VAULT_PATH)
 
+def reset_vault():
+    if not os.path.exists(VAULT_PATH):
+        console.print("[yellow]No vault found. Nothing to reset.[/yellow]")
+        return
+
+    console.print(Panel.fit(
+        "[bold red]⚠️ WARNING ⚠️[/bold red]\n\n"
+        "Resetting the master password will:\n"
+        "- Permanently delete ALL stored passwords\n"
+        "- Create a new empty vault\n\n"
+        "[bold]This action CANNOT be undone.[/bold]",
+        title="Vault Reset"
+    ))
+
+    if not Confirm.ask("Do you really want to reset the vault?", default=False):
+        console.print("[dim]Reset cancelled.[/dim]")
+        return
+
+    confirmation = Prompt.ask(
+        "[bold red]Type 'RESET' to confirm[/bold red]"
+    )
+
+    if confirmation != "RESET":
+        console.print("[bold yellow]Confirmation failed. Vault was NOT reset.[/bold yellow]")
+        return
+
+    try:
+        os.remove(VAULT_PATH)
+        console.print("[green]✓ Old vault deleted.[/green]")
+        initialize_vault()
+    except Exception as e:
+        console.print(f"[bold red]Reset failed: {e}[/bold red]")
+
+
 def load_vault(password: str) -> dict:
     """Loads and decrypts the vault from disk."""
     if not os.path.exists(VAULT_PATH):
@@ -266,6 +300,8 @@ def main():
 
     subparsers.add_parser("init", help="Initialize a new password vault.")
     subparsers.add_parser("add", help="Add a new password entry.")
+    subparsers.add_parser("reset", help="Reset master password (DESTROYS all stored data).")
+
     
     get_parser = subparsers.add_parser("get", help="Get a password for a service.")
     get_parser.add_argument("service", help="Name of the service.")
@@ -283,6 +319,10 @@ def main():
 
     if args.command == "init":
         initialize_vault()
+
+    elif args.command == "reset":
+    reset_vault()
+
     elif args.command in ["add", "get", "list", "delete"]:
         app.login()
         if args.command == "add":
@@ -309,3 +349,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
