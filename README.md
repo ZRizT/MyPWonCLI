@@ -1,4 +1,4 @@
-# MyPWonCLI
+# MyPW CLI
 ## MyPW - Your Modern Terminal Password Manager
 MyPW is a secure, command-line based password manager designed for developers and terminal enthusiasts. It provides a fast, modern, and interactive CLI to manage your passwords without ever leaving the terminal.
 All your data is stored in a single, heavily encrypted file (~/.mypw_vault.enc) on your local machine.
