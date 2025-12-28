@@ -170,7 +170,7 @@ class MyPW:
 ╚═╝░░░░░╚═╝  ░░░╚═╝░░░  ╚═╝░░░░░  ░╚══╝ ╚══╝
 
 [/bold cyan]
- [dim]Your Modern Terminal Password Manager[/dim]""", title="MyPW", expand=False))
+ [dim]Your Modern Terminal Password Manager[/dim]""", title="MyPW by ZRizT", expand=False))
 
     def generate_password(self, length=20, include_symbols=True, include_uppercase=True, include_lowercase=True, include_numbers=True):
         """Generates a strong, random password."""
@@ -351,5 +351,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
